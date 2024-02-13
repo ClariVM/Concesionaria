@@ -37,6 +37,11 @@ public class Principal extends javax.swing.JFrame {
 
         btnConsulta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnConsulta.setText("Consulta, edición y baja");
+        btnConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Clari\\OneDrive\\Escritorio\\toyota.png")); // NOI18N
 
@@ -83,6 +88,12 @@ public class Principal extends javax.swing.JFrame {
         alta.setVisible(true);
         alta.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnAltaAutoActionPerformed
+
+    private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
+        ConsultaAutomovil consulta = new ConsultaAutomovil();
+        consulta.setVisible(true);
+        consulta.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnConsultaActionPerformed
 
    
 

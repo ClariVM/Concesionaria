@@ -1,6 +1,7 @@
 package com.mycompany.automovil.logica;
 
 import com.mycompany.automovil.persistencia.ControladoraPersistencia;
+import java.util.List;
 
 
 public class Controladora {
@@ -20,6 +21,16 @@ public class Controladora {
         
         controlPersis.agregarAutomovil(auto);
 
+    }
+
+    public List<Automovil> traerAutos() {
+
+        return controlPersis.traerAutos();
+    }
+
+    public void borrarAuto(int idAuto) {
+        
+        controlPersis.borrarAuto(idAuto);
     }
     
 }
