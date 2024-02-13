@@ -65,6 +65,11 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
 
         btnModificar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -155,6 +160,31 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        //controlar que la tabla no esté vacía
+        if(tablaAutos.getRowCount()>0){
+            //controlar que tenga algo seleccionado
+            if(tablaAutos.getSelectedRow()!=-1){
+                //obtener el id del auto a modificar
+               int idAuto = (int) tablaAutos.getValueAt(tablaAutos.getSelectedRow(), 0);
+               
+               //modificar
+               ModifAuto modificar = new ModifAuto(idAuto);
+               modificar.setVisible(true);
+               modificar.setLocationRelativeTo(null);
+               
+               this.dispose();
+               
+              
+               
+            }else{
+                mostrarMensaje("No seleccionaste ningún registro a modificar", "Error", "Error al modificar");
+            }
+        } else{
+            mostrarMensaje("La tabla está vacía no se puede modificar", "Error", "Error al modificar");
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
 
     JOptionPane optionPane = new JOptionPane(mensaje);
@@ -168,8 +198,7 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
 
         dialog.setAlwaysOnTop(true);
         dialog.setVisible(true);
-
-        
+  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
